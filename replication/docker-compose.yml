@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  redis-master:
+    image: redis:latest
+    volumes:
+      - ./master/redis-master.conf:/etc/redis/redis.conf:ro
+      - redis_master_data:/data/redis/master
+    command: redis-server /etc/redis/redis.conf
+    ports:
+      - "127.0.0.1:6231:6231"
+
+  redis-replica-one:
+    image: redis:latest
+    volumes:
+      - ./replica-one/redis-replica-one.conf:/etc/redis/redis.conf:ro
+      - redis_replica_one_data:/data/redis/replica-one
+    command: redis-server /etc/redis/redis.conf
+    ports:
+      - "127.0.0.1:6232:6232"
+    depends_on:
+      - redis-master
+
+  redis-replica-two:
+    image: redis:latest
+    volumes:
+      - ./replica-two/redis-replica-two.conf:/etc/redis/redis.conf:ro
+      - redis_replica_two_data:/data/redis/replica-two
+    command: redis-server /etc/redis/redis.conf
+    ports:
+      - "127.0.0.1:6233:6233"
+    depends_on:
+      - redis-master
+
+volumes:
+  redis_master_data:
+  redis_replica_one_data:
+  redis_replica_two_data:
