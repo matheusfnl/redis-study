@@ -1,6 +1,6 @@
 # Redis Study 🛠️
 
-This repository contains my study files related to Redis, each with its own docker-compose.yml file for easy setup and execution.
+This repository contains my study files related to Redis.
 
 ## 🚀 Getting Started
 
@@ -12,7 +12,7 @@ Ensure you have the following installed on your system:
 
 ### Running a Example
 
-Each study is contained in its own directory with a dedicated `docker-compose.yml`. To start a specific study, navigate to the corresponding folder and run:
+To start, just run:
 
 ```bash
 docker compose up
