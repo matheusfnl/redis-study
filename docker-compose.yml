@@ -35,8 +35,9 @@ services:
   redis-sentinel-one:
     image: redis:latest
     volumes:
-      - ./sentinel-one/redis-sentinel-one.conf:/etc/redis/redis.conf:ro
+      - ./sentinel-one/redis-sentinel-one.conf:/etc/redis/redis.conf
       - redis_sentinel_one_data:/data/redis/sentinel-one
+    command: redis-sentinel /etc/redis/redis.conf
     ports:
       - "127.0.0.1:7231:7231"
     depends_on:
@@ -45,8 +46,9 @@ services:
   redis-sentinel-two:
     image: redis:latest
     volumes:
-      - ./sentinel-two/redis-sentinel-two.conf:/etc/redis/redis.conf:ro
+      - ./sentinel-two/redis-sentinel-two.conf:/etc/redis/redis.conf
       - redis_sentinel_two_data:/data/redis/sentinel-two
+    command: redis-sentinel /etc/redis/redis.conf
     ports:
       - "127.0.0.1:7232:7232"
     depends_on:
@@ -56,8 +58,9 @@ services:
   redis-sentinel-three:
     image: redis:latest
     volumes:
-      - ./sentinel-three/redis-sentinel-three.conf:/etc/redis/redis.conf:ro
+      - ./sentinel-three/redis-sentinel-three.conf:/etc/redis/redis.conf
       - redis_sentinel_three_data:/data/redis/sentinel-three
+    command: redis-sentinel /etc/redis/redis.conf
     ports:
       - "127.0.0.1:7233:7233"
     depends_on:
