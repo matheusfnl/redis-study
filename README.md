@@ -1,6 +1,6 @@
 # Redis Study 🛠️
 
-This repository contains my study files related to Redis.
+This repository contains my study files related to Redis using High Availability strategy.
 
 ## 🚀 Getting Started
 
