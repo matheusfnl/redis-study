@@ -2,7 +2,7 @@ services:
   redis-master:
     image: redis:latest
     volumes:
-      - ./master/redis-master.conf:/etc/redis/redis.conf:ro
+      - ./master/redis.conf:/etc/redis/redis.conf:ro
       - redis_master_data:/data/redis/master
     command: redis-server /etc/redis/redis.conf
     ports:
@@ -11,7 +11,7 @@ services:
   redis-replica-one:
     image: redis:latest
     volumes:
-      - ./replica-one/redis-replica-one.conf:/etc/redis/redis.conf:ro
+      - ./replica-one/redis.conf:/etc/redis/redis.conf:ro
       - redis_replica_one_data:/data/redis/replica-one
     command: redis-server /etc/redis/redis.conf
     ports:
@@ -22,7 +22,7 @@ services:
   redis-replica-two:
     image: redis:latest
     volumes:
-      - ./replica-two/redis-replica-two.conf:/etc/redis/redis.conf:ro
+      - ./replica-two/redis.conf:/etc/redis/redis.conf:ro
       - redis_replica_two_data:/data/redis/replica-two
     command: redis-server /etc/redis/redis.conf
     ports:
@@ -33,7 +33,7 @@ services:
   redis-sentinel-one:
     image: redis:latest
     volumes:
-      - ./sentinel-one/redis-sentinel-one.conf:/etc/redis/redis.conf
+      - ./sentinel-one/redis.conf:/etc/redis/redis.conf
       - redis_sentinel_one_data:/data/redis/sentinel-one
     command: redis-sentinel /etc/redis/redis.conf
     ports:
@@ -44,7 +44,7 @@ services:
   redis-sentinel-two:
     image: redis:latest
     volumes:
-      - ./sentinel-two/redis-sentinel-two.conf:/etc/redis/redis.conf
+      - ./sentinel-two/redis.conf:/etc/redis/redis.conf
       - redis_sentinel_two_data:/data/redis/sentinel-two
     command: redis-sentinel /etc/redis/redis.conf
     ports:
@@ -55,7 +55,7 @@ services:
   redis-sentinel-three:
     image: redis:latest
     volumes:
-      - ./sentinel-three/redis-sentinel-three.conf:/etc/redis/redis.conf
+      - ./sentinel-three/redis.conf:/etc/redis/redis.conf
       - redis_sentinel_three_data:/data/redis/sentinel-three
     command: redis-sentinel /etc/redis/redis.conf
     ports:
