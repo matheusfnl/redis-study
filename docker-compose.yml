@@ -1,6 +1,6 @@
 services:
   redis-master:
-    image: redis:latest
+    image: redis:7.4.2
     volumes:
       - ./master/redis.conf:/etc/redis/redis.conf:ro
       - redis_master_data:/data/redis/master
@@ -9,7 +9,7 @@ services:
       - "6231:6231"
 
   redis-replica-one:
-    image: redis:latest
+    image: redis:7.4.2
     volumes:
       - ./replica-one/redis.conf:/etc/redis/redis.conf:ro
       - redis_replica_one_data:/data/redis/replica-one
@@ -20,7 +20,7 @@ services:
       - redis-master
 
   redis-replica-two:
-    image: redis:latest
+    image: redis:7.4.2
     volumes:
       - ./replica-two/redis.conf:/etc/redis/redis.conf:ro
       - redis_replica_two_data:/data/redis/replica-two
@@ -31,7 +31,7 @@ services:
       - redis-master
 
   redis-sentinel-one:
-    image: redis:latest
+    image: redis:7.4.2
     volumes:
       - ./sentinel-one/redis.conf:/etc/redis/redis.conf
       - redis_sentinel_one_data:/data/redis/sentinel-one
@@ -42,7 +42,7 @@ services:
       - redis-master
 
   redis-sentinel-two:
-    image: redis:latest
+    image: redis:7.4.2
     volumes:
       - ./sentinel-two/redis.conf:/etc/redis/redis.conf
       - redis_sentinel_two_data:/data/redis/sentinel-two
@@ -53,7 +53,7 @@ services:
       - redis-master
 
   redis-sentinel-three:
-    image: redis:latest
+    image: redis:7.4.2
     volumes:
       - ./sentinel-three/redis.conf:/etc/redis/redis.conf
       - redis_sentinel_three_data:/data/redis/sentinel-three
